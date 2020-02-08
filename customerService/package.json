@@ -1,0 +1,20 @@
+{
+  "name": "nats-customer-service",
+  "version": "1.0.0",
+  "description": "NATS customer service",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/service"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-nats": "^1.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.2",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
+  }
+}
