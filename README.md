@@ -21,9 +21,22 @@ git clone git@github.com:johnbiundo/nest-nats-sample.git
 ```
 
 #### Install dependencies
+
+Either `cd` into each project folder and run `npm install`:
+
 ```bash
-cd nest-nats-sample
+cd nest-nats-sample/customerApp
 npm install
+cd ../customerService
+npm install
+# etc
+```
+
+Or, do that all in one go with the `build.sh` script:
+
+```bash
+# from nest-nats-sample
+sh build.sh
 ```
 
 ## Running NATS
@@ -35,9 +48,9 @@ You can easily run a local copy of NATS (say on an Ubuntu server), but I strongl
 docker-compose up
 ```
 
-This starts a container running the official [NATS image](https://docs.nats.io/nats-server/nats_docker) using the [`-Dv` flag](https://docs.nats.io/nats-server/flags#logging-options) so you can watch the message traffic as you run the various code samples.
+This starts a container running the official [NATS image](https://docs.nats.io/nats-server/nats_docker).  The container runs in the foreground and uses the [`-Dv` flag](https://docs.nats.io/nats-server/flags#logging-options) so you can watch the message traffic as you run the various code samples.
 
-## Pro Tip: Use Tmux!
+## Pro Tip: Use Tmux (optional)!
 
 If you want to get more familiar with how Nest and NATS play together, you're going to want to run several servers and interact with and monitor them from the command line.  (Aside: this is one of the reasons I use Ubuntu (over Windows) for this kind of work.  I find it much easier to work with multiple server processes.  Anyway...)
 
@@ -50,4 +63,77 @@ If you're interested in learning Tmux, here's a [good place to start](https://li
 As an inducement to use it, here's what mine looks like when running some of the code in this repo.  It's super handy to be able to tab through these panes, run commands, and watch the logs.
 ![tmux](https://user-images.githubusercontent.com/6937031/74091865-8d439d80-4a71-11ea-9217-6f9af4094deb.png)
 
+## Running the All-Nest Configuration
 
+To run an "All-Nest" configuration &#8212; that is, the **Nest requestor** (*nestHttpApp*) and the **Nest responder** (*nestMicroservice*) communication with each other in a "classic" Nest microservices mode, follow these steps:
+
+1. With NATS [up and running](#running-nats), launch the *nestMicroservice* app in one window:
+
+    ```bash
+    # from the nest-nats-sample/nestMicroservice directory
+    npm run start:dev
+    ```
+
+2. Launch the *nestHttpApp* in a separate window:
+
+    ```bash
+    # from the nest-nats-sample/nestHttpApp directory
+    npm run start:dev
+    ```
+
+3. In a third window, simulate REST requests with [cURL]() or [httPie](). The following are shown as *httPie* commands at the OS command line:
+
+    > \# get all customers
+    > http get localhost:3000/customers
+
+    The expected response is:
+
+    ```json
+      {
+        "customers": [
+          {
+            "id": 1,
+            "name": "nestjs.com"
+          }
+        ]
+      }
+    ```
+
+    > \# get customer by id (passing id of 1)
+    > http get localhost:3000/customers/1
+
+    The expected response is:
+
+    ```json
+      {
+        "customers": [
+          {
+            "id": 1,
+            "name": "nestjs.com"
+          }
+        ]
+      }
+    ```
+
+    > \# add a customer
+    > http post localhost:3000/customer name="Nestles, Inc"
+
+    > \# get all customers
+    > http get localhost:3000/customers
+
+    The expected response is:
+
+    ```json
+      {
+        "customers": [
+          {
+            "id": 1,
+            "name": "nestjs.com"
+          },
+          {
+            "id": 2,
+            "name": "Nestles, inc."
+          }
+        ]
+      }
+    ```
