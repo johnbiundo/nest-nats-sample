@@ -156,10 +156,12 @@ To run an "All-Native-App" configuration &#8212; that is, the native TypeScript/
 
    ```bash
    # from the nest-nats-sample/customerApp directory
+   #
+   # first build the app
    npm run build
-   # pass the 'get-customers' option
+   # run the requestor, passing the 'get-customers' option
    npm run get-customers
-   # pass the 'add-customer' option
+   # run the requestor, passing the 'add-customer' option and a new customer
    npm run add-customer "Hersheys, Inc."
    # get customers again
    npm run get-customers
