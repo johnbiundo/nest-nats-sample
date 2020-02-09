@@ -32,7 +32,7 @@ npm install
 # etc
 ```
 
-Or, do that all in one go with the `build.sh` script:
+Or, **do that all in one** go with the `build.sh` script:
 
 ```bash
 # from nest-nats-sample
