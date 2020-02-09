@@ -20,21 +20,21 @@ async function bootstrap() {
       queue: 'customers',
       url: 'nats://localhost:4222',
       /**
-       * Use the "Identity" (De)Serializers for observing messages for
+       * Use the "Identity" (de)serializers for observing messages for
        * nest-only deployment.
        */
       // serializer: new OutboundResponseIdentitySerializer(),
       // deserializer: new InboundMessageIdentityDeserializer(),
 
       /**
-       * Use the "External" (De)Serializers for transforming messages to/from
+       * Use the "External" (de)serializers for transforming messages to/from
        * an external requestor
        */
       // serializer: new OutboundResponseExternalSerializer(),
       // deserializer: new InboundMessageExternalDeserializer(),
 
       /**
-       * Use the "Omni" (De)Serializers for simultaneously supporting
+       * Use the "Omni" (de)serializers for simultaneously supporting
        * external requestors and any Nest requestors which haven't been
        * modified to serialize to the "neutral" (external) message
        * format.

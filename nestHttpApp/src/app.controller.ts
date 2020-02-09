@@ -17,14 +17,14 @@ export class AppController {
     options: {
       url: 'nats://localhost:4222',
       /**
-       * Use the "Identity" (De)Serializers for observing messages for
+       * Use the "Identity" (de)serializers for observing messages for
        * nest-only deployment.
        */
       // serializer: new OutboundMessageIdentitySerializer(),
       // deserializer: new InboundResponseIdentityDeserializer(),
 
       /**
-       * Use the "External" (De)Serializers for transforming messages to/from
+       * Use the "External" (de)serializers for transforming messages to/from
        * (only) an external responder
        */
       // serializer: new OutboundMessageExternalSerializer(),
@@ -36,7 +36,7 @@ export class AppController {
   /**
    * Route 'GET customers' sends request with topic 'get-customers' via NATS.
    *
-   * httPie: http get localhost:3000/customers
+   * For testing with httPie: http get localhost:3000/customers
    */
   @Get('customers')
   getCustomers(): Observable<any> {
@@ -58,7 +58,7 @@ export class AppController {
    * Route 'GET customers/id' sends request with topic 'get-customers' via NATS,
    * along with a payload containing the requested customer's id.
    *
-   * httPie: http get localhost:3000/customers/1
+   * For testing with httPie: http get localhost:3000/customers/1
    */
   @Get('customers/:id')
   async getCustomersById(@Param('id') id: number): Promise<any> {
@@ -76,7 +76,7 @@ export class AppController {
    * Route 'POST customer' emits an event with the topic 'add-customer' via NATS,
    * along with a payload containing the new customer information.
    *
-   * httPie: http post localhost:3000/customer name=<some name>
+   * For testing with httPie: http post localhost:3000/customer name=<some name>
    */
   @Post('customer')
   addCustomer(@Body() customer: any) {
