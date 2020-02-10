@@ -1,6 +1,6 @@
 # Sample repository for Nest/Nats/Microservice Article Series
 
-This repository is a companion for a series of blog posts starting with [Integrate NestJS with External Services using Microservice Transporters (Part 1)]().
+This repository is a companion for a series of blog posts starting with [Integrate NestJS with External Services using Microservice Transporters (Part 1)](https://dev.to/nestjs/integrate-nestjs-with-external-services-using-microservice-transporters-part-1-p3).
 
 ## System Requirements
 
