@@ -81,7 +81,7 @@ To run an "All-Nest" configuration &#8212; that is, the **Nest requestor** (_nes
    npm run start:dev
    ```
 
-3. In a third window, simulate REST requests with [cURL]() or [httPie](). The following are shown as _httPie_ commands at the OS command line:
+3. In a third window, simulate REST requests with [cURL](https://curl.haxx.se/) or [httPie](https://httpie.org/). The following are shown as _httPie_ commands at the OS command line:
 
    > \# get all customers
    > http get localhost:3000/customers
