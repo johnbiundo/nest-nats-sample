@@ -84,6 +84,7 @@ To run an "All-Nest" configuration &#8212; that is, the **Nest requestor** (_nes
 3. In a third window, simulate REST requests with [cURL](https://curl.haxx.se/) or [httPie](https://httpie.org/). The following are shown as _httPie_ commands at the OS command line:
 
    > \# get all customers
+   
    > http get localhost:3000/customers
 
    The expected response is:
@@ -100,6 +101,7 @@ To run an "All-Nest" configuration &#8212; that is, the **Nest requestor** (_nes
    ```
 
    > \# get customer by id (passing id of 1)
+   
    > http get localhost:3000/customers/1
 
    The expected response is:
@@ -116,9 +118,11 @@ To run an "All-Nest" configuration &#8212; that is, the **Nest requestor** (_nes
    ```
 
    > \# add a customer
+   
    > http post localhost:3000/customer name="Nestles, Inc"
 
    > \# get all customers
+   
    > http get localhost:3000/customers
 
    The expected response is:
