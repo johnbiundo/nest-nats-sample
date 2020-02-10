@@ -13,7 +13,7 @@ export class InboundMessageIdentityDeserializer
 
   deserialize(value: any, options?: Record<string, any>): IncomingRequest {
     this.logger.verbose(
-      `<<-- deserializing outbound message:\n${JSON.stringify(
+      `<<-- deserializing inbound message:\n${JSON.stringify(
         value,
       )}\n\twith options: ${JSON.stringify(options)}`,
     );
