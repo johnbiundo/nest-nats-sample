@@ -108,12 +108,10 @@ To run an "All-Nest" configuration &#8212; that is, the **Nest requestor** (_nes
 
    ```json
    {
-     "customers": [
-       {
-         "id": 1,
-         "name": "nestjs.com"
-       }
-     ]
+     "customers": {
+       "id": 1,
+       "name": "nestjs.com"
+     }
    }
    ```
 
