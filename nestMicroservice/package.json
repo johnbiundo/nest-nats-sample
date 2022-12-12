@@ -23,7 +23,7 @@
     "@nestjs/common": "^6.11.5",
     "@nestjs/core": "^6.11.5",
     "@nestjs/microservices": "^6.11.6",
-    "@nestjs/platform-express": "^6.11.5",
+    "@nestjs/platform-express": "^9.2.1",
     "mqtt": "^3.0.0",
     "nats": "^1.3.2",
     "redis": "^2.8.0",
