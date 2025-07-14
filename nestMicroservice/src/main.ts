@@ -39,8 +39,8 @@ async function bootstrap() {
        * modified to serialize to the "neutral" (external) message
        * format.
        */
-      // serializer: new OutboundResponseOmniSerializer(),
-      // deserializer: new InboundMessageOmniDeserializer(),
+      serializer: new OutboundResponseOmniSerializer(),
+      deserializer: new InboundMessageOmniDeserializer(),
     },
   });
   app.listen(() => logger.verbose('Microservice is listening...'));
